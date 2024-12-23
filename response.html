@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Response</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .response-form {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .response-form input, .response-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .response-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .response-form button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .responses {
+            margin-top: 30px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .response {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        .response h4 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .response p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .response-time {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* Buttons for Like, Dislike, and Reply */
+        .response-actions {
+            margin-top: 10px;
+        }
+
+        .response-actions button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .like-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .dislike-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .reply-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .response-actions button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        .response-reply {
+            margin-top: 15px;
+            display: none;
+        }
+
+        /* To ensure the layout is responsive */
+        @media (max-width: 768px) {
+            .response-form, .responses {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Post a Response</h2>
+    <div class="response-form">
+        <input type="text" id="response-title" placeholder="Enter Title" required>
+        <textarea id="response-text" placeholder="Enter your response" required></textarea>
+        <button id="post-response">Post Response</button>
+    </div>
+
+ 
+    <button id="post-review-btn" onclick="showFeedbackForm()">Post a Review</button>
+
+    <!-- Feedback Form -->
+    <div id="feedback-form" style="display: none; margin-top: 20px;">
+        <h5>Rate this Response</h5>
+        <div id="star-rating">
+            <label><input type="radio" name="stars" value="1"> 1 Star</label>
+            <label><input type="radio" name="stars" value="2"> 2 Stars</label>
+            <label><input type="radio" name="stars" value="3"> 3 Stars</label>
+            <label><input type="radio" name="stars" value="4"> 4 Stars</label>
+            <label><input type="radio" name="stars" value="5"> 5 Stars</label>
+        </div>
+        <textarea id="feedback-text" placeholder="Write your feedback here..." rows="4" style="width: 100%; margin-top: 10px;"></textarea>
+        <button onclick="submitFeedback()" style="margin-top: 10px;">Submit Feedback</button>
+    </div>
+</div>
+    <div class="responses" id="responses-list">
+        <!-- Responses will be displayed here -->
+    </div>
+
+    <script type="module" src="../js/response.js"></script>
+    <script type="module" src="../js/feedback.js"></script>
+</body>
+</html>
